@@ -1,73 +1,47 @@
-! Sols RNG-inspired Google Classroom Transformation
-! This script aims to visually transform Google Classroom into a Sols RNG-like experience.
-! It uses CSS to modify colors, fonts, backgrounds, and element positions.
-! Remember to use your browser's developer tools to inspect Google Classroom's HTML
-! and identify the correct class names and IDs for targeted styling.
-
-! General Styling (Background, Text)
-classroom.google.com##body:style(background-color: #1a0033 !important; color: #CCEEFF !important; font-family: 'Press Start 2P', monospace !important;)
-classroom.google.com##*:style(font-family: 'Press Start 2P', monospace !important;)
-classroom.google.com##a:style(color: #00FFFF !important; text-decoration: none !important;)
-classroom.google.com##a:hover:style(color: #FF00FF !important; text-decoration: underline !important;)
-
-! Top Navigation Bar (e.g., "Classroom" text, user profile, etc.)
-classroom.google.com##.gb_kc:style(background-color: #330066 !important; border-bottom: 2px solid #CC00FF !important; box-shadow: 0px 0px 15px rgba(204, 0, 255, 0.75) !important;)
-classroom.google.com##.gb_P:style(color: #FFD700 !important; font-size: 24px !important; text-shadow: 2px 2px 5px #000000 !important;)
-classroom.google.com##.gb_zc:style(background-color: #5500AA !important; border-radius: 50% !important; box-shadow: 0px 0px 8px rgba(0, 255, 255, 0.5) !important;)
-
-! Class Cards / Stream Items
-classroom.google.com##.jhp8i:style(background-color: #220044 !important; border: 1px solid #6600BB !important; border-radius: 10px !important; margin: 10px !important; padding: 15px !important; box-shadow: 0px 0px 12px rgba(102, 0, 187, 0.5) !important; position: relative !important; overflow: hidden !important;)
-classroom.google.com##.jhp8i::before:style(content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); animation: aura-pulse 5s infinite alternate !important; z-index: 0 !important;)
-classroom.google.com##.jhp8i h2:style(color: #00FFFF !important; text-shadow: 1px 1px 3px #000000 !important;)
-classroom.google.com##.jhp8i .c77qve:style(color: #AAAAAA !important;)
-
-! Assignment/Announcement Details
-classroom.google.com##.jhp8i .R4uKwb:style(background-color: #2D005D !important; border-left: 3px solid #FF00FF !important; padding: 10px !important; margin-top: 10px !important; box-shadow: inset 0px 0px 5px rgba(255, 0, 255, 0.3) !important;)
-classroom.google.com##.jhp8i .R4uKwb .zAVpje:style(color: #CCFFFF !important; font-weight: bold !important;)
-
-! Buttons (e.g., "Open," "Assign," "Turn In")
-classroom.google.com##button, .VfPpkd-Bz112c-Lgbswe:style(background-color: #5500AA !important; color: #FFFF00 !important; border: 1px solid #FFD700 !important; border-radius: 5px !important; padding: 8px 15px !important; text-transform: uppercase !important; box-shadow: 0px 0px 8px rgba(255, 215, 0, 0.5) !important; transition: all 0.3s ease-in-out !important;)
-classroom.google.com##button:hover, .VfPpkd-Bz112c-Lgbswe:hover:style(background-color: #7700BB !important; color: #FFFFFF !important; box-shadow: 0px 0px 12px rgba(255, 215, 0, 0.8) !important; transform: scale(1.05) !important;)
-
-! Input Fields and Text Areas
-classroom.google.com##input[type="text"], textarea:style(background-color: #110022 !important; border: 1px solid #6600BB !important; color: #FFFFFF !important; padding: 5px !important; border-radius: 3px !important; box-shadow: inset 0px 0px 5px rgba(102, 0, 187, 0.3) !important;)
-
-! Scrollbar Styling (Webkit-specific)
-classroom.google.com##::-webkit-scrollbar:style(width: 8px !important; background-color: #110022 !important;)
-classroom.google.com##::-webkit-scrollbar-thumb:style(background-color: #6600BB !important; border-radius: 4px !important; border: 1px solid #CC00FF !important;)
-classroom.google.com##::-webkit-scrollbar-thumb:hover:style(background-color: #8800CC !important;)
-
-! Example Animations (More complex animations might require @keyframes)
-! Note: You'll need to define `@keyframes` rules outside of the `style()` for complex animations.
-! Here's an example:
-! classroom.google.com##@keyframes flash:style(0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; })
-! classroom.google.com##.gb_kc:style(animation: flash 2s infinite alternate !important;)
-
-! Placeholder Text (Input fields)
-classroom.google.com##::-webkit-input-placeholder:style(color: #999999 !important; font-style: italic !important;)
-classroom.google.com##::-moz-placeholder:style(color: #999999 !important; font-style: italic !important;)
-classroom.google.com##:-ms-input-placeholder:style(color: #999999 !important; font-style: italic !important;)
-
-! Additional Effects (You can expand on these significantly)
-! Example: Adding "particle" effects to the background
-classroom.google.com##body::before:style(content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="2" fill="%23CCEEFF" opacity="0.3"/></svg>') repeat !important; opacity: 0.2 !important; animation: particles 20s infinite linear !important; z-index: -1 !important;)
-classroom.google.com##@keyframes particles:style(0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; })
-
-! Example: Emphasizing headers with a subtle pulse
-classroom.google.com##h1, h2, h3:style(animation: header-pulse 3s infinite ease-in-out !important;)
-classroom.google.com##@keyframes header-pulse:style(0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.02); opacity: 0.9; } 100% { transform: scale(1); opacity: 1; })
-
-! You can create custom filters to target specific elements and add more dramatic effects:
-! Example: A specific "aura" effect for a homework submission button
-! classroom.google.com###some-homework-submit-button-id:style(box-shadow: 0px 0px 20px 5px rgba(255, 0, 255, 0.9) !important; animation: aura-glow 2s infinite alternate !important;)
-! classroom.google.com##@keyframes aura-glow:style(0% { box-shadow: 0px 0px 15px 3px rgba(255, 0, 255, 0.7); } 100% { box-shadow: 0px 0px 25px 7px rgba(255, 0, 255, 0.9); })
-
-! Hiding Elements (If you want to simplify the UI to resemble a game more)
-! classroom.google.com##.gb_Ac.gb_kd.gb_hc:style(display: none !important;) ! Example: Hide some top bar elements
-! classroom.google.com##.gb_oc.gb_Qc:style(display: none !important;) ! Example: Hide the left-hand navigation
-
-! Positioning Elements (Requires knowing the element's default position and sizing)
-! classroom.google.com###some-element-id:style(position: absolute !important; top: 50px !important; left: 100px !important;)
-
-! Add more custom filters here to target specific elements you want to modify!
-! Remember to use developer tools to find the correct CSS selectors.
+classroom.google.com##.yWU57c.tCcYY > .rknsod:style(background: linear-gradient(to bottom, rgba(25, 27, 29, 0.9), rgba(40, 42, 44, 0.8)) !important; )
+classroom.google.com###kO001e > .QRiHXd:style(background: linear-gradient(to right, rgba(25, 27, 29, 0.8), rgba(50, 52, 54, 0.7)) !important;)
+classroom.google.com##.kFwPee:style(background-color: rgba(30, 32, 34, 0.8) !important;)
+classroom.google.com##html:style(background-color: #4B4D4E !important;)
+classroom.google.com##body:style(background-color: #4B4D4E !important;)
+classroom.google.com##.TQYOZc:style(background-color: rgba(45, 47, 49, 0.9) !important;)
+classroom.google.com##p:style(color: rgba(230, 230, 230, 0.9) !important;)
+classroom.google.com##span:style(color: rgba(230, 230, 230, 0.9) !important;)
+classroom.google.com##div:style(color: rgba(230, 230, 230, 0.9) !important;)
+classroom.google.com##h1:style(color: #E0E0E0 !important;)
+classroom.google.com##h2:style(color: #E0E0E0 !important;)
+classroom.google.com##h3:style(color: #E0E0E0 !important;)
+classroom.google.com##h4:style(color: #E0E0E0 !important;)
+classroom.google.com##h5:style(color: #E0E0E0 !important;)
+classroom.google.com##h6:style(color: #E0E0E0 !important;)
+classroom.google.com##a:style(color: #99A1E0 !important;) /* Softer blue for links */
+classroom.google.com##.KEDCCd:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.DJLg5c.SFCE1b:style(background-color: rgba(60, 64, 68, 0.8) !important; border-radius: 12px !important; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4) !important; ) /* Rounded corners and subtle shadow */
+classroom.google.com##.DJLg5c.SFCE1b:style(background-color: rgba(50, 52, 54, 0.8) !important;)
+classroom.google.com##.BiaLW.K2hR3c > .LBlAUc.AJFihd.GWZ7yf > .sVNOQ > .vWmhwe.dEODdf.Hf5Z9 > div.MlZb9c.Hf5Z9.D7N6he > .t2wIBc > .F4mChd.Aopndd.QRiHXd.r0VQac:style(background: linear-gradient(to bottom right, rgba(60, 64, 68, 0.8), rgba(75, 79, 83, 0.7)) !important; )
+classroom.google.com##div.xLFtvb.MlZb9c.JfyI3.D7N6he > .t2wIBc > .Aopndd.QRiHXd.r0VQac:style(background: linear-gradient(to bottom left, rgba(60, 64, 68, 0.8), rgba(75, 79, 83, 0.7)) !important; )
+classroom.google.com##div.DkDwHe.h7Ww0.xWw7yd.TIunU.Aopndd.LBlAUc.qhnNic > .DJLg5c.n4xnA:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.dsW6Nd.CG2qQ > .jlxRme.d4Fe0d:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.DJLg5c.n4xnA:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.Q8U8uc.PeGHgb:style(background-color: rgb(75,77,78) !important; )
+classroom.google.com##.s2g3Xd:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.Aopndd.V203cd:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##div.Aopndd.pEwOBc.mSaSG:nth-of-type(1):style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##div.Aopndd.pEwOBc.mSaSG:nth-of-type(4):style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.DJLg5c.h7Ww0.zJKoCe.RcHwO:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.ez0Kgd:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.cT47V.dEODdf.bIICf > div.d3aYgd.MlZb9c.bIICf.D7N6he > div.luto0c > .M4LFnf.Aopndd.QRiHXd.pOf0gc:style(background: radial-gradient(circle, rgba(25, 27, 29, 0.8), rgba(40, 42, 44, 0.7)) !important; )
+classroom.google.com##.DmLMLb-ORHb-OWXEXe-FNFY6c.ynt9Dc.DmLMLb-ORHb > .DmLMLb-gkkIFf:style(background-color: rgba(35, 37, 39, 0.8) !important; )
+classroom.google.com##.rhFKgc.dEODdf.bIICf > div.d3aYgd.MlZb9c.bIICf.D7N6he > .luto0c > .M4LFnf.Aopndd.QRiHXd.pOf0gc:style(background: radial-gradient(circle, rgba(25, 27, 29, 0.8), rgba(40, 42, 44, 0.7)) !important; )
+classroom.google.com##.SZ0kZe:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.QRiHXd.AWfQId:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.LZqXdf:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.vTcY1d.I9OJHe.tAVIoc:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.CIy9F.EN2Rfc:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.e2PGHf.IzVHde:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.M4LFnf.Aopndd.QRiHXd.pOf0gc:style(background-color: rgba(25, 27, 29, 0.8) !important; )
+classroom.google.com##.tB5Jxf-xl07Ob-XxIAqe-OWXEXe-oYxtQd > div > span > .KqyCxc.pYTkkf-Bz112c-LgbsSe-OWXEXe-SfQLQb-suEOdc.pYTkkf-Bz112c-LgbsSe > .pYTkkf-Bz112c-RLmnJb:style(background: linear-gradient(to right, rgba(60, 64, 68, 0.7), rgba(80, 84, 88, 0.6)) !important; border-radius: 8px !important; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3) !important; )
+classroom.google.com##.N6nSod > .tB5Jxf-xl07Ob-XxIAqe-OWXEXe-oYxtQd > div > span:style(background: linear-gradient(to right, rgba(60, 64, 68, 0.7), rgba(80, 84, 88, 0.6)) !important; border-radius: 8px !important; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3) !important; )
+classroom.google.com##.N6nSod > .tB5Jxf-xl07Ob-XxIAqe-OWXEXe-oYxtQd > div > span
+classroom.google.com##.g0zrjc
+classroom.google.com##.TvKfwb:style(background-color: #191B1D !important;)
+classroom.google.com##.VfPpkd-T0kwCb:style(background-color: #191B1D !important;)
